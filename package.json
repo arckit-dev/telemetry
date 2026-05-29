@@ -40,6 +40,11 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "context": ["dist/context.d.ts"]
+    }
+  },
   "files": ["dist"],
   "sideEffects": false,
   "engines": {
