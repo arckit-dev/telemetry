@@ -1,6 +1,6 @@
 {
   "name": "@arckit/telemetry",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Vendor-neutral telemetry toolkit — logs, errors, events, traces and metrics behind pluggable adapters (Pino, OpenTelemetry, Sentry, Matomo)",
   "packageManager": "pnpm@10.33.0",
   "license": "MIT",

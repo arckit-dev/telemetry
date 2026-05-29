@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/arckit-dev/telemetry/compare/v1.1.0...v1.1.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* emit correct dts for the root entry ([6abead0](https://github.com/arckit-dev/telemetry/commit/6abead0577d4b85b70893b9c34ba87cac6336fbe))
+
 # [1.1.0](https://github.com/arckit-dev/telemetry/compare/v1.0.0...v1.1.0) (2026-05-29)
 
 
