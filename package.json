@@ -1,19 +1,19 @@
 {
-  "name": "@arckit/observability",
+  "name": "@arckit/telemetry",
   "version": "1.0.0",
-  "description": "Structured observability toolkit with pluggable transports (console, file/pino)",
+  "description": "Vendor-neutral telemetry toolkit — logs, errors, events, traces and metrics behind pluggable adapters (Pino, OpenTelemetry, Sentry, Matomo)",
   "packageManager": "pnpm@10.33.0",
   "license": "MIT",
   "author": "Marc Gavanier <marc@gavanier.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arckit-dev/observability.git"
+    "url": "git+https://github.com/arckit-dev/telemetry.git"
   },
-  "homepage": "https://github.com/arckit-dev/observability#readme",
+  "homepage": "https://github.com/arckit-dev/telemetry#readme",
   "bugs": {
-    "url": "https://github.com/arckit-dev/observability/issues"
+    "url": "https://github.com/arckit-dev/telemetry/issues"
   },
-  "keywords": ["arckit", "observability", "logging", "monitoring", "pino"],
+  "keywords": ["arckit", "telemetry", "observability", "opentelemetry", "logging", "metrics", "tracing"],
   "type": "module",
   "exports": {
     ".": {
@@ -24,6 +24,16 @@
       "require": {
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
+      }
+    },
+    "./context": {
+      "import": {
+        "types": "./dist/context.d.ts",
+        "default": "./dist/context.js"
+      },
+      "require": {
+        "types": "./dist/context.d.cts",
+        "default": "./dist/context.cjs"
       }
     }
   },
@@ -53,9 +63,17 @@
     "prepare": "husky"
   },
   "peerDependencies": {
+    "@opentelemetry/api": ">=1",
+    "@sentry/nextjs": ">=8",
     "pino": ">=9"
   },
   "peerDependenciesMeta": {
+    "@opentelemetry/api": {
+      "optional": true
+    },
+    "@sentry/nextjs": {
+      "optional": true
+    },
     "pino": {
       "optional": true
     }
@@ -65,9 +83,11 @@
     "@biomejs/biome": "^2.4.0",
     "@commitlint/cli": "^20.0.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@opentelemetry/api": "^1.9.1",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/exec": "^7.0.0",
     "@semantic-release/git": "^10.0.0",
+    "@sentry/nextjs": "^10.53.1",
     "@size-limit/file": "^11.0.0",
     "@vitest/coverage-v8": "^4.0.0",
     "husky": "^9.0.0",
@@ -88,6 +108,10 @@
   "size-limit": [
     {
       "path": "dist/index.js",
+      "limit": "30 kB"
+    },
+    {
+      "path": "dist/context.js",
       "limit": "2 kB"
     }
   ],
