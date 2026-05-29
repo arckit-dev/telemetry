@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/arckit-dev/telemetry/compare/v1.0.0...v1.1.0) (2026-05-29)
+
+
+### Bug Fixes
+
+* add typesVersions for the ./context subpath ([ec66a10](https://github.com/arckit-dev/telemetry/commit/ec66a100169537925e9f776a65ee5d87051709f2))
+* override transitive postcss to patched 8.5.10 ([582c5aa](https://github.com/arckit-dev/telemetry/commit/582c5aa6ce7943af774fee7b879c88deabd10c83))
+* sync lockfile with added telemetry peer devDependencies ([2a90c1a](https://github.com/arckit-dev/telemetry/commit/2a90c1a6db8aa7200c4ed79251f6d3bc48df174f))
+
+
+### Features
+
+* repurpose package as @arckit/telemetry ([a211ba6](https://github.com/arckit-dev/telemetry/commit/a211ba6568ccfa2e8a5580b520af1eb88c5b3e61))
+
 # 1.0.0 (2026-04-20)
 
 
