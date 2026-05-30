@@ -40,7 +40,7 @@ const customDimensionParams = (
   if (!properties || !mapping) return {};
   return Object.fromEntries(
     Object.entries(mapping)
-      .filter(([key]) => key !== 'value' && properties[key] !== undefined)
+      .filter(([key]) => key !== 'value' && key !== 'name' && properties[key] !== undefined)
       .map(([key, slot]) => [`dimension${slot}`, stringifyAttribute(properties[key] as AttributeValue)])
   );
 };
@@ -51,6 +51,11 @@ const unixSeconds = (timestamp: string | undefined): string | undefined =>
 const numericValue = (properties: EventProperties | undefined): string | undefined => {
   const value = properties?.['value'];
   return typeof value === 'number' ? String(value) : undefined;
+};
+
+const stringName = (properties: EventProperties | undefined): string | undefined => {
+  const name = properties?.['name'];
+  return typeof name === 'string' ? name : undefined;
 };
 
 const FNV_OFFSET = 0xcbf29ce484222325n;
@@ -76,11 +81,13 @@ export const buildMatomoTrackParams = ({
   const { category, action } = splitEvent(event);
   const cdt = unixSeconds(timestamp);
   const value = numericValue(properties);
+  const name = stringName(properties);
   return new URLSearchParams({
     idsite: config.siteId,
     rec: '1',
     e_c: category,
     e_a: action,
+    ...(name !== undefined ? { e_n: name } : {}),
     ...(value !== undefined ? { e_v: value } : {}),
     ...(cdt !== undefined ? { cdt } : {}),
     ...(userId ? { uid: userId } : {}),
