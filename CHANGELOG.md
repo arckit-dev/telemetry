@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/arckit-dev/telemetry/compare/v1.1.1...v1.2.0) (2026-05-30)
+
+
+### Features
+
+* **event-tracker:** forward event name and page url, add matomo browser init ([11ac493](https://github.com/arckit-dev/telemetry/commit/11ac4934f2ce5f173921390bb080fe5dfe067191))
+
 ## [1.1.1](https://github.com/arckit-dev/telemetry/compare/v1.1.0...v1.1.1) (2026-05-29)
 
 
