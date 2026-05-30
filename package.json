@@ -35,6 +35,56 @@
         "types": "./dist/context.d.cts",
         "default": "./dist/context.cjs"
       }
+    },
+    "./event-tracker": {
+      "import": {
+        "types": "./dist/event-tracker.d.ts",
+        "default": "./dist/event-tracker.js"
+      },
+      "require": {
+        "types": "./dist/event-tracker.d.cts",
+        "default": "./dist/event-tracker.cjs"
+      }
+    },
+    "./error-reporter": {
+      "import": {
+        "types": "./dist/error-reporter.d.ts",
+        "default": "./dist/error-reporter.js"
+      },
+      "require": {
+        "types": "./dist/error-reporter.d.cts",
+        "default": "./dist/error-reporter.cjs"
+      }
+    },
+    "./logger": {
+      "import": {
+        "types": "./dist/logger.d.ts",
+        "default": "./dist/logger.js"
+      },
+      "require": {
+        "types": "./dist/logger.d.cts",
+        "default": "./dist/logger.cjs"
+      }
+    },
+    "./metrics": {
+      "import": {
+        "types": "./dist/metrics.d.ts",
+        "default": "./dist/metrics.js"
+      },
+      "require": {
+        "types": "./dist/metrics.d.cts",
+        "default": "./dist/metrics.cjs"
+      }
+    },
+    "./tracer": {
+      "import": {
+        "types": "./dist/tracer.d.ts",
+        "default": "./dist/tracer.js"
+      },
+      "require": {
+        "types": "./dist/tracer.d.cts",
+        "default": "./dist/tracer.cjs"
+      }
     }
   },
   "main": "./dist/index.cjs",
@@ -42,7 +92,12 @@
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "context": ["dist/context.d.ts"]
+      "context": ["dist/context.d.ts"],
+      "event-tracker": ["dist/event-tracker.d.ts"],
+      "error-reporter": ["dist/error-reporter.d.ts"],
+      "logger": ["dist/logger.d.ts"],
+      "metrics": ["dist/metrics.d.ts"],
+      "tracer": ["dist/tracer.d.ts"]
     }
   },
   "files": ["dist"],
