@@ -45,6 +45,7 @@ export const createMatomoEventTracker = ({ config, ...getters }: CreateMatomoEve
           config,
           name: event.name,
           url: event.properties?.['url'] as string | undefined,
+          referrer: event.properties?.['referrer'] as string | undefined,
           userId: record['userId'] as string | undefined,
           anonymousId: record['anonymousId'] as string | undefined,
           timestamp: record['timestamp'] as string
