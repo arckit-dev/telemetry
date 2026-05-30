@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/arckit-dev/telemetry/compare/v1.3.0...v1.4.0) (2026-05-30)
+
+
+### Features
+
+* **event-tracker:** browser page-view helper, page referrer, lenient init ([7dc090a](https://github.com/arckit-dev/telemetry/commit/7dc090a8f72d10348a39bf175f7b226d19770050))
+
 # [1.3.0](https://github.com/arckit-dev/telemetry/compare/v1.2.0...v1.3.0) (2026-05-30)
 
 
