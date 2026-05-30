@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/arckit-dev/telemetry/compare/v1.2.0...v1.3.0) (2026-05-30)
+
+
+### Features
+
+* **exports:** expose subpath entries per telemetry pillar ([d80acda](https://github.com/arckit-dev/telemetry/commit/d80acda72735fb00efa23add4e9e450315bf6ba2))
+
 # [1.2.0](https://github.com/arckit-dev/telemetry/compare/v1.1.1...v1.2.0) (2026-05-30)
 
 
