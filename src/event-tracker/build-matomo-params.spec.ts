@@ -40,6 +40,30 @@ describe('buildMatomoTrackParams', () => {
     expect(buildMatomoTrackParams({ config, event: 'X' }).has('_id')).toBe(false);
   });
 
+  it('includes e_n when properties.name is a string', () => {
+    expect(buildMatomoTrackParams({ config, event: 'Search Select', properties: { name: 'commune' } }).get('e_n')).toBe(
+      'commune'
+    );
+  });
+
+  it('omits e_n when properties.name is absent', () => {
+    expect(buildMatomoTrackParams({ config, event: 'X' }).has('e_n')).toBe(false);
+  });
+
+  it('omits e_n when properties.name is not a string', () => {
+    expect(buildMatomoTrackParams({ config, event: 'X', properties: { name: 42 } }).has('e_n')).toBe(false);
+  });
+
+  it('excludes the name property from custom dimensions when also mapped', () => {
+    expect(
+      buildMatomoTrackParams({
+        config: { ...config, customDimensions: { name: 4 } },
+        event: 'X',
+        properties: { name: 'commune' }
+      }).has('dimension4')
+    ).toBe(false);
+  });
+
   it('includes e_v when properties.value is a number', () => {
     expect(buildMatomoTrackParams({ config, event: 'X', properties: { value: 49.9 } }).get('e_v')).toBe('49.9');
   });

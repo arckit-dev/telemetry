@@ -27,6 +27,7 @@ export type {
   EventTracker,
   IdentifyAction,
   IdentifyEvent,
+  MatomoBrowserOptions,
   MatomoConfig,
   PageAction,
   PageEvent,
@@ -40,6 +41,7 @@ export {
   createLoggerEventTracker,
   createMatomoEventTracker,
   createNoopEventTracker,
+  initMatomoBrowser,
   matomoBrowserEventTracker,
   serverActionEventTracker
 } from './event-tracker';
