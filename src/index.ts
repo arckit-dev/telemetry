@@ -43,6 +43,7 @@ export {
   createNoopEventTracker,
   initMatomoBrowser,
   matomoBrowserEventTracker,
+  matomoBrowserPageView,
   serverActionEventTracker
 } from './event-tracker';
 export type { Instrument } from './instrument';

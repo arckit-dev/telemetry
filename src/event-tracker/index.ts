@@ -13,7 +13,7 @@ export type {
 } from './event-tracker.type';
 export { createLoggerEventTracker } from './logger-event-tracker';
 export type { MatomoBrowserOptions } from './matomo-browser-event-tracker';
-export { initMatomoBrowser, matomoBrowserEventTracker } from './matomo-browser-event-tracker';
+export { initMatomoBrowser, matomoBrowserEventTracker, matomoBrowserPageView } from './matomo-browser-event-tracker';
 export { createMatomoEventTracker } from './matomo-event-tracker';
 export { createNoopEventTracker } from './noop-event-tracker';
 export type {

@@ -8,8 +8,8 @@ declare global {
 }
 
 export type MatomoBrowserOptions = {
-  readonly url: string;
-  readonly siteId: string;
+  readonly url?: string | undefined;
+  readonly siteId?: string | undefined;
   readonly disableCookies?: boolean | undefined;
   readonly enableLinkTracking?: boolean | undefined;
   readonly heartBeatTimer?: boolean | number | undefined;
@@ -41,6 +41,9 @@ const stringName = (properties: EventProperties | undefined): string | undefined
 const stringUrl = (properties: EventProperties | undefined): string | undefined =>
   typeof properties?.['url'] === 'string' ? properties['url'] : undefined;
 
+const stringReferrer = (properties: EventProperties | undefined): string | undefined =>
+  typeof properties?.['referrer'] === 'string' ? properties['referrer'] : undefined;
+
 const paqPush = (...args: unknown[]): void => {
   if (typeof window === 'undefined' || !window._paq) return;
   window._paq.push(args);
@@ -57,6 +60,7 @@ const injectScript = (src: string): void => {
 
 export const initMatomoBrowser = (options: MatomoBrowserOptions): void => {
   if (initialized || typeof window === 'undefined') return;
+  if (!options.url || !options.siteId) return;
   initialized = true;
 
   const paq = window._paq ?? [];
@@ -91,10 +95,30 @@ export const matomoBrowserEventTracker = (): EventTracker => ({
   page: (event: PageEvent): EventRecord => {
     const record = buildEventRecord({ type: 'page', ...event, ...envelope() });
     const url = stringUrl(event.properties);
+    const referrer = stringReferrer(event.properties);
     if (event.userId) paqPush('setUserId', event.userId);
     if (url) paqPush('setCustomUrl', url);
+    if (referrer) paqPush('setReferrerUrl', referrer);
     if (event.name) paqPush('setDocumentTitle', event.name);
     paqPush('trackPageView');
     return record;
   }
 });
+
+const toRelativeUrl = (href?: string): string => {
+  const { pathname, search } = new URL(href ?? window.location.href, window.location.origin);
+  return pathname + search;
+};
+
+export const matomoBrowserPageView = (): ((href?: string) => void) => {
+  const tracker = matomoBrowserEventTracker();
+  let previous = '';
+  return (href?: string): void => {
+    if (typeof window === 'undefined') return;
+    const url = toRelativeUrl(href);
+    if (url === previous) return;
+    const name = typeof document === 'undefined' ? undefined : document.title;
+    tracker.page({ ...(name ? { name } : {}), properties: { url, ...(previous ? { referrer: previous } : {}) } });
+    previous = url;
+  };
+};

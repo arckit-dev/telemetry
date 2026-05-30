@@ -20,6 +20,7 @@ type PageParamsInput = {
   readonly config: MatomoConfig;
   readonly name?: string | undefined;
   readonly url?: string | undefined;
+  readonly referrer?: string | undefined;
   readonly userId?: UserId | undefined;
   readonly anonymousId?: AnonymousId | undefined;
   readonly timestamp?: string | undefined;
@@ -100,6 +101,7 @@ export const buildMatomoPageParams = ({
   config,
   name,
   url,
+  referrer,
   userId,
   anonymousId,
   timestamp
@@ -110,6 +112,7 @@ export const buildMatomoPageParams = ({
     rec: '1',
     ...(name ? { action_name: name } : {}),
     ...(url ? { url } : {}),
+    ...(referrer ? { urlref: referrer } : {}),
     ...(cdt !== undefined ? { cdt } : {}),
     ...(userId ? { uid: userId } : {}),
     ...(anonymousId ? { _id: matomoVisitorId(anonymousId) } : {})

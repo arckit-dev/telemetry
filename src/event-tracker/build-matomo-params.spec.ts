@@ -125,6 +125,14 @@ describe('buildMatomoPageParams', () => {
     expect(buildMatomoPageParams({ config }).has('url')).toBe(false);
   });
 
+  it('includes urlref when a referrer is provided', () => {
+    expect(buildMatomoPageParams({ config, referrer: 'https://ihexa.app/' }).get('urlref')).toBe('https://ihexa.app/');
+  });
+
+  it('omits urlref when no referrer is provided', () => {
+    expect(buildMatomoPageParams({ config }).has('urlref')).toBe(false);
+  });
+
   it('includes uid when userId is provided', () => {
     expect(buildMatomoPageParams({ config, userId: 'u1' }).get('uid')).toBe('u1');
   });
