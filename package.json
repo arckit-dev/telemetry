@@ -85,6 +85,16 @@
         "types": "./dist/tracer.d.cts",
         "default": "./dist/tracer.cjs"
       }
+    },
+    "./instrument": {
+      "import": {
+        "types": "./dist/instrument.d.ts",
+        "default": "./dist/instrument.js"
+      },
+      "require": {
+        "types": "./dist/instrument.d.cts",
+        "default": "./dist/instrument.cjs"
+      }
     }
   },
   "main": "./dist/index.cjs",
@@ -97,7 +107,8 @@
       "error-reporter": ["dist/error-reporter.d.ts"],
       "logger": ["dist/logger.d.ts"],
       "metrics": ["dist/metrics.d.ts"],
-      "tracer": ["dist/tracer.d.ts"]
+      "tracer": ["dist/tracer.d.ts"],
+      "instrument": ["dist/instrument.d.ts"]
     }
   },
   "files": ["dist"],

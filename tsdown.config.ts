@@ -8,7 +8,8 @@ export default defineConfig({
     'error-reporter': 'src/error-reporter/index.ts',
     logger: 'src/logger/index.ts',
     metrics: 'src/metrics/index.ts',
-    tracer: 'src/tracer/index.ts'
+    tracer: 'src/tracer/index.ts',
+    instrument: 'src/instrument.ts'
   },
   format: ['esm', 'cjs'],
   dts: true,
