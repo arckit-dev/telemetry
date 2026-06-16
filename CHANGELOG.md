@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/arckit-dev/telemetry/compare/v1.4.0...v1.5.0) (2026-06-16)
+
+
+### Features
+
+* **instrument:** expose createInstrument via dedicated subpath ([72837bf](https://github.com/arckit-dev/telemetry/commit/72837bf405400ad7b15e536278ef7016d229e764))
+
 # [1.4.0](https://github.com/arckit-dev/telemetry/compare/v1.3.0...v1.4.0) (2026-05-30)
 
 
